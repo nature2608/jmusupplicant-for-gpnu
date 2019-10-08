@@ -2,10 +2,8 @@
 
 [![License](https://img.shields.io/crates/l/rustc-serialize.svg)](https://raw.githubusercontent.com/ShanQincheng/jmuSupplicant/master/LICENSE)
 
-- 本项目基于jmuSupplicant修改完成，适用于常熟理工学院校园网认证。
+- 本项目基于jmuSupplicant修改完成，适用于广东技术师范大学校园网认证。
 - 感谢原作者提供源代码
-- 很遗憾没能实现11点后断网认证。
-- padavan固件下使用不是很稳定，尽量使用op。
 
 # 编译（以Unbuntu 18.04LTS为例）
 
@@ -104,7 +102,7 @@ make
 - 使用以下指令进行锐捷认证：
 
   ```bash
-  sudo ./jmu -u 学号 -p 密码 -s0(教育网接入)1(联通宽带接入)2(移动宽带接入)3(电信宽带接入) -b
+  sudo ./jmu -u 学号 -p 密码 -s0(校园网接入) -b
   ```
 
 - 程序输出锐捷认证信息，或显示 login success， 则认证成功。
@@ -112,11 +110,8 @@ make
 # 已测试稳定运行的设备
 
 - 计算机：
-  - Ubuntu 18.04
+  - Ubuntu 18.04 18.10
 - 路由器：
   - MT7621
   - MT7620
-
-# License
-
-Apache version 2.0
+  - AR71xx
