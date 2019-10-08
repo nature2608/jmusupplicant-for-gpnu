@@ -93,7 +93,7 @@ uint8_t
 // description:
 //    字符串编码转换
 //------------------------------------------------------------------------
-int code_convert(char *from_charset, char *to_charset,
+/*int code_convert(char *from_charset, char *to_charset,
              char *inbuf, size_t inlen, char *outbuf, size_t outlen)
 {
   iconv_t cd;
@@ -110,7 +110,7 @@ int code_convert(char *from_charset, char *to_charset,
   iconv_close(cd);
   return 0;
 }
-
+*/
 //added to convert GBK to utf-8
 static char *gbk2utf(char *gbksrc, size_t gbklen)	/* GBK转UTF－8 */
 {
@@ -156,7 +156,10 @@ void print_server_info(const uint8_t *frame)
                   msg_buf, 1024);*/
     msg_buf=gbk2utf(msg,msg_length);
     if(strlen(msg_buf) > 0) {
-        fprintf (stdout, ">>Ruijie 通知: %s\n", msg_buf);
+	openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO, ">>系统通知: %s\n", msg_buf);
+    closelog();
+    fprintf (stdout, ">>系统通知: %s\n", msg_buf);
         free(msg_buf);  //打印完就要释放
     }
 
@@ -171,6 +174,9 @@ void print_server_info(const uint8_t *frame)
                   msg_buf, 1024);*/
     msg_buf=gbk2utf(msg,msg_length);
     if(strlen(msg_buf) > 0) {
+	openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
+    	syslog(LOG_INFO, ">>账户信息: %s\n", msg_buf);
+	closelog();
         fprintf (stdout, ">>账户信息: %s\n", msg_buf);
         free(msg_buf);
     }
@@ -345,9 +351,9 @@ void HandleSigalrm(int sig, siginfo_t *siginfo, void *context)
     KeepOnline();
 
     // Logs here
-    openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO, "Send an eapol heartbeat frame...");
-    closelog();
+ //   openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
+ //   syslog(LOG_INFO, "Send an eapol heartbeat frame...");
+ //   closelog();
 
     alarm(30);
     break;
@@ -380,11 +386,7 @@ void KeepOnline()
  
   if(current_state == ONLINE)
   {
-    // Logs here
-    openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO, "Send an eapol heartbeat frame...");
-    closelog();
-
+    
     send_eap_frame(ONLINE, NULL);
   }else exit(1);
 

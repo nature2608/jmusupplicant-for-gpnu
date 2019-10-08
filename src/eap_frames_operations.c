@@ -279,6 +279,11 @@ int send_eap_frame(SEND_FRAME_TYPE type, const uint8_t *frame)
     send_eap_frame_data_length = 45;
 
     fprintf(stdout, "login success !\n");
+// Logs here
+    openlog(NULL, LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO, "login success !");
+    syslog(LOG_INFO, "Send an heartbeat to keeplive...");
+    closelog();
     break;
 
   case ONLINE:
