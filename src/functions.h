@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <string.h>
 #include <malloc.h>
-#include <iconv.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <syslog.h>
