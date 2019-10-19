@@ -504,10 +504,10 @@ static void PrintInitConfig()
   integer_type_service_company %= 4;
   switch(integer_type_service_company) {
     case 0:
-      isp_name = "校园网接入";
+      isp_name = "校本部接入";
       break;
     case 1:
-      isp_name = "联通宽带接入";
+      isp_name = "白云接入";
       break;
     case 2:
       isp_name = "移动宽带接入";

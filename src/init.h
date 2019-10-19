@@ -38,13 +38,13 @@ typedef struct nic_struct {
   struct in_addr dns;
 } NIC_STRUCT;
 
-const static uint8_t SERVICE_EDUCATION[] = {0xd1, 0xa7,0xc9, 0xfa, 0x57, 0x65, 0x62, 0xb0, 0xfc, 0xd4, 0xc2, 0xbc, 0xc6, 0xb7, 0xd1}; //教育网接入
-const static uint8_t SERVICE_CHINA_UNICOM[] = {0xc1, 0xaa, 0xcd, 0xa8}; // 联通宽带接入
+const static uint8_t SERVICE_EDUCATION[] = {0xd1, 0xa7, 0xc9, 0xfa, 0x44, 0x48, 0x43, 0x50, 0xd3, 0xc3, 0xbb, 0xa7}; //校本部
+const static uint8_t SERVICE_CHINA_UNICOM[] = {0xd1, 0xa7,0xc9, 0xfa, 0x57, 0x65, 0x62, 0xb0, 0xfc, 0xd4, 0xc2, 0xbc, 0xc6, 0xb7, 0xd1}; // 白云
 const static uint8_t SERVICE_CHINA_MOBILE[] = {0xd2, 0xc6, 0xb6, 0xaf, 0xbf}; // 移动宽带接入
 const static uint8_t SERVICE_CHINA_TELECOM[] = {0xb5, 0xe7, 0xd0, 0xc5, 0xbf}; // 电信宽带接入
 
-const static unsigned int SERVICE_EDUCATION_LENGTH = 15; // bytes number
-const static unsigned int SERVICE_CHINA_UNICOM_LENGTH = 4;
+const static unsigned int SERVICE_EDUCATION_LENGTH = 12; // bytes number
+const static unsigned int SERVICE_CHINA_UNICOM_LENGTH = 15;
 const static unsigned int SERVICE_CHINA_MOBILE_LENGTH = 4;
 const static unsigned int SERVICE_CHINA_TELECOM_LENGTH = 4;
 
